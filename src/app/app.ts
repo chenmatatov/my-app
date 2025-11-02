@@ -12,4 +12,13 @@ import { USERS } from './fake_users';
 export class App {
   protected readonly title = signal('my-first-app');
   users=USERS
+
+   selsctedUser=this.users[6]
+  onUserSelected(idUser:string){
+    const user = this.users.find((user)=>user.id===idUser)
+    if(user)
+    this.selsctedUser=user;
+    
+   
+  }
 }
