@@ -1,5 +1,4 @@
 import { Component , Input, EventEmitter, Output} from '@angular/core';
-import { USERS } from '../fake_users';
 
 @Component({
   selector: 'app-user',
