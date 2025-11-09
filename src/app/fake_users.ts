@@ -30,9 +30,5 @@ export const USERS = [
     name: 'Yossi Ben-David',
     avatar: 'user-6.jpg',
   },
-  {
-    id: 'u0',
-    name: '',
-    avatar: 'not',
-  }
+ 
 ];
