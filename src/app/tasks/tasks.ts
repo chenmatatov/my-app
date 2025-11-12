@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { fakeTasks } from './fake_tasks';
-import { TaskComponent } from './task/task.component';
+import { TaskComponent } from './task/task';
 
 
 @Component({

@@ -1,4 +1,4 @@
-export type Task = {
+export type Taskobj = {
     id: string;
     userId: string;
     title: string;
