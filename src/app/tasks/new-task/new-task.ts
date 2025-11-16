@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-new-task',
   imports: [FormsModule],
@@ -7,5 +8,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-task.css'
 })
 export class NewTask {
-
+title='chen';
+summary='';
+due_date='';
+newTask(form:NgForm)
+{
+console.log("from",form);
+}
 }
