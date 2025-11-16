@@ -8,6 +8,6 @@ import { Taskobj } from './task.model';
   templateUrl: './task.html',
   styleUrls: ['./task.css']
 })
-export class TaskComponent {
+export class Task {
   @Input({ required: true }) task!: Taskobj;
 }
