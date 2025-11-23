@@ -3,16 +3,21 @@
     <h2>{{name}}'s Tasks</h2>
     <menu>
       <button (click)="changeShowTask()">Add Task</button>
+      <button (click)="ContactTask()">Contact Us</button>
     </menu>
   </header>
-<ul>
-  @for(task of userSelectedTasks; track task.id){
+  <ul>
+    @for(task of userSelectedTasks; track task.id){
     <li>
       <app-task [task]="task"></app-task>
     </li>
-  }
-</ul>
+    }
+  </ul>
   @if(showTask){
-<app-new-task></app-new-task>
+  <app-new-task (add)="addTask($event)" (close)="showTask=false"></app-new-task>
+  }
+
+  @if(showContact){
+  <app-contact-us (close)="showContact=false"></app-contact-us>
   }
 </section>
