@@ -2,20 +2,20 @@ import { Component, Input } from '@angular/core';
 import { fakeTasks } from './fake_tasks';
 import { Task } from './task/task';
 import { NewTask } from './new-task/new-task';
-import { ContactUs } from '../contact-us/contact-us';
+
 
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [Task, NewTask,ContactUs],
+  imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.css']
 })
+
 export class Tasks {
   tasks = fakeTasks;
   showTask = false;
-  showContact = false;
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
 
@@ -25,9 +25,7 @@ export class Tasks {
   changeShowTask() {
     this.showTask = true;
   }
-  ContactTask() {
-    this.showContact = true;
-  }
+  
    addTask(taskData: { title: string; summary: string; dueDate: string }) {
     const newTask = {
       id: 't' + (this.tasks.length + 1), // יצירת id ייחודי

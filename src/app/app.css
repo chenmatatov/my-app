@@ -15,6 +15,27 @@ main {
   gap: 0.5rem;
   overflow: auto;
 }
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #184d23;
+  color: #b3d8c3;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: #2e7d32;
+  color: #150722;
+}
 
 #fallback {
   font-weight: bold;

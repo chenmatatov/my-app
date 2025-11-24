@@ -5,14 +5,16 @@ import { USERS } from './fake_users';
 import { Tasks } from './tasks/tasks';
 import { UserWithSignals } from './user-with-signals/user-with-signals';
 import { UserObj } from './user/user.model';
+import { ContactUs } from './contact-us/contact-us';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, User, Tasks, UserWithSignals],
+  imports: [Header, User, Tasks, UserWithSignals,ContactUs],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
+  showContact = false;
   protected readonly title = signal('my-first-app');
   users = signal(USERS);
   selectedUser = signal<UserObj | null>(null);
@@ -21,5 +23,7 @@ export class App {
     const user = this.users().find(u => u.id === userId) || null;
     this.selectedUser.set(user);
   }
-
+  ContactTask() {
+    this.showContact = true;
+  }
 }

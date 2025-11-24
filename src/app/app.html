@@ -17,4 +17,8 @@
   @else{
   <p id="fallback">Please select a user to view his tasks</p>
   }
+  <button (click)="ContactTask()">Contact Us</button>
+  @if(showContact){
+    <app-contact-us (close)="showContact=false"></app-contact-us>
+    }
 </main>
