@@ -4,7 +4,6 @@ export const USERS = [
     name: 'Yael Levi',
     avatar: 'user-1.jpg',
   },
-
   {
     id: 'u2',
     name: 'Chana Cohen',
@@ -30,5 +29,6 @@ export const USERS = [
     name: 'Yossi Ben-David',
     avatar: 'user-6.jpg',
   },
- 
 ];
+
+

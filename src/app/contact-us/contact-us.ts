@@ -8,36 +8,37 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './contact-us.css'
 })
 export class ContactUs {
- 
-@Output() close = new EventEmitter<void>();
-
-closeDialog() {
-  this.close.emit();
-}
-
   form = new FormGroup({
-    name: new FormControl('chen', [Validators.required, Validators.maxLength(18)]),
-    email: new FormControl('chen@gmail.com', [Validators.required, Validators.email]),
-    subject: new FormControl('subject', [Validators.maxLength(50)]),
-    message: new FormControl('message'),
-  })
-  submit() {
-    if (this.form.invalid) return;
+    name: new FormControl('Example name', [Validators.required, Validators.maxLength(18)]),
+    email: new FormControl('example@gmail.com', [Validators.required, Validators.email]),
+    subject: new FormControl('',[Validators.maxLength(50)]),
+    message: new FormControl('')
+  });
 
-    console.log("Form submitted:", this.form.value);
-    this.form.reset(); // ניקוי הטופס
-    this.closeDialog();
+  
+  @Output() cancel = new EventEmitter<void>()
+  @Output() send = new EventEmitter<void>()
+
+  get name(){
+    return this.form.controls['name'];
   }
-  Cancel() {
-    this.form.reset(); // ניקוי הטופס
-     this.closeDialog(); 
+
+  get email(){
+    return this.form.controls['email'];
   }
-  get name() { return this.form.get('name')!; }
-  get email() { return this.form.get('email')!; }
-  get subject() { return this.form.get('subject')!; }
-  get message() { return this.form.get('message')!; }
 
+  get subject(){
+    return this.form.controls['subject'];
+  }
 
+  submit(){
+    console.log("Submit contact us form");
+    console.log(this.form.value);
+    this.send.emit();
+  }
 
+  Cancel(){
+    console.log("Cancel contact us");
+    this.cancel.emit();
+  }
 }
-

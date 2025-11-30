@@ -1,66 +1,38 @@
-<div class="backdrop"></div>
+<div class="backdrop" (click)="Cancel()"></div>
 <dialog open>
-
     <h2>Contact Us</h2>
-
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup] = "form" (ngSubmit)="submit()">
         <p>
-            <label for="name">Name</label>
-            <input type="text" formControlName="name" />
-
-            @if (name.touched && name.invalid) {
-
-            @if (name.hasError('required')) {
-        <div class="error">שדה חובה</div>
-        }
-
-        @if (name.hasError('maxlength')) {
-        <div class="error">השם יכול להכיל עד 18 תווים בלבד</div>
-        }
-
-        }
+            <label for="name">Your Name</label>
+            <input type="text" id = "name" name="name" formControlName="name" />
         </p>
-
+        @if(name.touched && name.invalid)
+        {
+            <small class="error-messages">Name is invalid</small>
+        }
         <p>
-            <label for="email">Email</label>
-            <input type="email" formControlName="email" />
-
-            @if (email.touched && email.invalid) {
-
-            @if (email.hasError('required')) {
-                <div class="error">שדה חובה</div>
-            }
-
-            @if (email.hasError('email')) {
-                <div class="error">כתובת אימייל לא תקינה</div>
-            }
-
-        }
+            <label for="email">Your Email</label>
+            <input type="email" id = "email" name="email" formControlName="email" />
         </p>
-
-
+        @if(email.touched && email.invalid)
+        {
+            <small class="error-messages">Email is invalid</small>
+        }
         <p>
             <label for="subject">Subject</label>
-            <input type="text" formControlName="subject" />
-
-            @if (subject.touched && subject.invalid) {
-
-            @if (subject.hasError('maxlength')) {
-        <div class="error">הנושא יכול להכיל עד 50 תווים בלבד</div>
-        }
-
-        }
+            <input type="text" id = "subject" name="subject" formControlName="subject" />
         </p>
-
+        @if(subject.touched && subject.invalid)
+        {
+            <small class="error-messages">Subject is invalid</small>
+        }
         <p>
-            <label for="message">Message</label>
-            <input type="text" formControlName="message" />
+            <label for="message">Your Message</label>
+            <textarea id = "message" name="message" formControlName="message"></textarea>
         </p>
-
         <p class="actions">
-            <button (click)="Cancel()" type="button">Cancel</button>
-            <button type="submit">Send</button>
+            <button type="button" (click)="Cancel()">Cancel</button>
+            <button type="submit" [disabled]="form.invalid">Send</button>
         </p>
     </form>
-
 </dialog>

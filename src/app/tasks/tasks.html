@@ -1,23 +1,20 @@
 <section id="tasks">
-  <header>
-    <h2>{{name}}'s Tasks</h2>
-    <menu>
-      <button (click)="changeShowTask()">Add Task</button>
-      <button (click)="ContactTask()">Contact Us</button>
-    </menu>
-  </header>
-  <ul>
-    @for(task of userSelectedTasks; track task.id){
-    <li>
-      <app-task [task]="task"></app-task>
-    </li>
-    }
-  </ul>
-  @if(showTask){
-  <app-new-task (add)="addTask($event)" (close)="showTask=false"></app-new-task>
-  }
+    <header>
+        <h2>{{name}}'s Tasks</h2>
+        <menu>
+            <button (click) = "onShowTask()" >Add Task</button>
+        </menu>
+    </header>
+    <ul>
+        @for(task of userSelectedTasks; track task.id)
+        {
+            <li><app-task [task]="task"></app-task></li>
+        }
+        
+    </ul>
 
-  @if(showContact){
-  <app-contact-us (close)="showContact=false"></app-contact-us>
-  }
+    @if(showTask)
+    {
+        <app-new-task (addTask) = "onAddTask($event)" (cancel) ="Cancel()"></app-new-task>
+    }
 </section>

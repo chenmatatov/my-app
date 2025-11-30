@@ -1,42 +1,45 @@
 import { Component, Input } from '@angular/core';
-import { fakeTasks } from './fake_tasks';
+import { fakeTasks } from './fake_tasks'
 import { Task } from './task/task';
 import { NewTask } from './new-task/new-task';
-import { ContactUs } from '../contact-us/contact-us';
-
+import { NewTaskData } from './task/task.model';
+import { TaskObj } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
-  imports: [Task, NewTask,ContactUs],
+  imports: [Task, NewTask],
   templateUrl: './tasks.html',
-  styleUrls: ['./tasks.css']
+  styleUrl: './tasks.css'
 })
 export class Tasks {
-  tasks = fakeTasks;
-  showTask = false;
-  showContact = false;
-  @Input({ required: true }) name!: string;
-  @Input({ required: true }) userId!: string;
+  tasks = fakeTasks
+  @Input({required:true}) userId!:string
+  @Input({required:true}) name!:string
 
-  get userSelectedTasks() {
-    return this.tasks.filter(task => task.userId === this.userId);
-  }
-  changeShowTask() {
+  showTask = false;
+
+  onShowTask(){
     this.showTask = true;
   }
-  ContactTask() {
-    this.showContact = true;
+
+  get userSelectedTasks() {
+    return this.tasks.filter((task) => task.userId === this.userId)
   }
-   addTask(taskData: { title: string; summary: string; dueDate: string }) {
-    const newTask = {
-      id: 't' + (this.tasks.length + 1), // יצירת id ייחודי
+
+  onAddTask(newTask: NewTaskData){
+    const newTask2 = {
+      id: 't' + (this.tasks.length + 1),
       userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.dueDate
-    };
-    this.tasks.push(newTask);
-    this.showTask = false; // סוגר את ה-NewTask אחרי הוספה
+      title: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.dueDate
+    }
+
+    this.tasks.push(newTask2);
+    this.showTask = false;
+  }
+
+  Cancel(){
+    this.showTask = false;
   }
 }

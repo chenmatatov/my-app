@@ -1,6 +1,12 @@
-export type Taskobj = {
-    id: string;
-    userId: string;
+export type TaskObj = {
+    id: string; 
+    userId: string; 
+    title: string; 
+    summary: string; 
+    dueDate: string; 
+}
+
+export type NewTaskData = {
     title: string;
     summary: string;
     dueDate: string;
