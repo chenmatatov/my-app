@@ -11,6 +11,7 @@ import { TaskObj } from './task/task.model';
   templateUrl: './tasks.html',
   styleUrl: './tasks.css'
 })
+
 export class Tasks {
   tasks = fakeTasks
   @Input({required:true}) userId!:string
