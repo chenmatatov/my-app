@@ -7,21 +7,12 @@ import { UsersWithSignals } from './users-with-signals/users-with-signals';
 import { ContactUs } from './contact-us/contact-us';
 import { UserObj } from './user/user.model';
 import { Header } from './header/header';
-// import { RouterOutlet } from '@angular/router';
-// import { Header } from './header/header';
-// import { User } from './user/user';
-// import { UsersWithSignals } from './users-with-signals/users-with-signals';
-// import { USERS } from './fake_users';
-// import { Tasks } from './tasks/tasks'
-// import { ContactUs } from './contact-us/contact-us';
-// import { NewUser } from './user/new-user/new-user';
-// import { UserObj } from './user/user.model';
+
 
 
 
 @Component({
   selector: 'app-root',
-  // imports: [RouterOutlet, NewUser, Headers, User, Tasks, UsersWithSignals, ContactUs],
   imports: [ NewUser, Header, User, Tasks, UsersWithSignals, ContactUs],
   templateUrl: './app.html',
   styleUrl: './app.css'
