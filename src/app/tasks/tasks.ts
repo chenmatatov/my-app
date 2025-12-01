@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { fakeTasks } from './fake_tasks'
 import { Task } from './task/task';
 import { NewTask } from './new-task/new-task';
 import { NewTaskData } from './task/task.model';
 import { TaskObj } from './task/task.model';
+import { fakeTasks } from '../fake_tasks';
 
 @Component({
   selector: 'app-tasks',
